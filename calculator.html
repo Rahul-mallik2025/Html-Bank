@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> calculator </title>
+        <style>
+            body 
+            {
+                font-family: Arial;
+            }
+            .calculator 
+            {
+                background-color: greenyellow;
+                padding: 10px;
+                width: 220px;
+            }
+
+            #display 
+            {
+                width: 190px;
+                height: 30px;
+                font-size: 18px;
+                margin-bottom: 5px;
+            }
+            button
+            {
+                width: 45px;
+                height: 35px;
+                margin: 2px;
+                font-size: 16px;
+            }
+            .clear
+            {
+                width: 100px;
+            }
+            .equal
+            {
+                width: 200px;
+            }
+        </style>
+    </head>
+
+    <body>
+
+        <div class = "calculator">
+
+            <input type="text" id="display" readonly>
+
+
+            <br>
+
+            <button onclick="clickButton('1')">1</button>
+            <button onclick="clickButton('2')">2</button>
+            <button onclick="clickButton('3')">3</button>
+
+            <br>
+
+            <button onclick="clickButton('4')">4</button>
+            <button onclick="clickButton('5')">5</button>
+            <button onclick="clickButton('6')">6</button>
+
+            <br>
+
+            <button onclick="clickButton('7')">7</button>
+            <button onclick="clickButton('8')">8</button>
+            <button onclick="clickButton('9')">9</button>
+
+            <br>
+
+            <button onclick="clickButton('0')">0</button>
+
+            <br>
+
+            <button onclick="clickButton('+')">+</button>
+            <button onclick="clickButton('-')">-</button>
+            <button onclick="clickButton('*')">*</button>
+
+            <br>
+
+            <button onclick="clickButton('/')">/</button>
+
+            <br>
+
+            <button class="clear" onclick="clearDisplay()">clear</button>
+
+            <br>
+
+            <button class="equal"onclick="calculate()">=</button>
+
+        </div>
+
+        <script>
+
+           function clickButton(value)
+            {
+                document.getElementById("display").value += value;
+            }
+
+            function calculate()
+            {
+                try
+                {
+                    let result = eval(document.getElementById("display").value);
+                    document.getElementById("display").value = result;
+                }
+                catch
+                {
+                    alert("syntax Error");
+                }
+            }
+            function clearDisplay()
+            {
+                document.getElementById("display").value = "";
+            } 
+        </script>
+    </body>
+</html>
